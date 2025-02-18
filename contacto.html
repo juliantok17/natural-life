@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>    
+<meta charset="utf-8">
+<title>NATURAL LIFE - CONTACTO</title>
+<link href="css/style.css" rel="stylesheet">
+<link href="css/contacto.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+     	<div class="fondo"></div>
+      <!--<h1> <span class="blanco">Natural</span> <span class="verde">Life</span> </h1>-->
+        <!--iconos de facebook twitter y youtube en header-->
+        <a href=""><div id="imagen1"> </div></a>
+        <a href=""><div id="imagen2"> </div></a>
+        <a href=""><div id="imagen3"> </div></a>
+    </header>
+     
+    <nav>
+        <ul>
+            <li><a href="index.html">inicio::</a></li>
+            <li><a href="empresa.html">empresa::</a></li>
+            <li><a href="servicios.html">servicios::</a></li>
+            <li><a href="productos.html">productos::</a></li>
+	        <li><a href="#">contacto::</a></li>
+ 	        <li><a href="links.html">links::</a></li>    
+        </ul>
+        
+		<!--Se usa width="x" dentro de img si se necesita definir un tamaño-->     
+        <div id="face" class="rotar"><img src="img/facepruebaitalic.png"></div>
+        <div id="tweet" class="rotar"><img src="img/twitter1_40x40.png"></div>
+        <div id="youtube" class="rotar"><img src="img/youtube1_40x40.png"></div>       
+    </nav>
+
+    <section>
+        <article id="art1">
+        	<form class="contact_form" action="enviar.php" method="post">
+    			<ul>
+        			<li>
+             			<h2>Formulario de Contacto</h2>
+        			</li>
+        			<li>
+            			<label for="nombre">Nombre:</label>
+            			<input type="text" name="nombre" id="nombre" placeholder="tunombre" required />
+        			</li>
+        			<li>
+            			<label for="email">Email:</label>
+            			<input type="email" name="email" id="email" placeholder="tumail@correo.com" required />
+        			</li>
+        			<li>
+            			<label for="website">Sitio Web:</label>
+            			<input type="url" name="web" id="web" placeholder="http://www.hugocattaneopropiedades.com" />
+        			</li>
+        			<!-- <li>
+                               <fieldset>
+        				<legend> Edad </legend>
+        				<input type="radio" name="edad" id="edad" checked><label>Entre 5 y 19</label>
+        				<input type="radio" name="edad" id="edad"><label>Entre 20 y 50</label>
+       					 </fieldset>
+						       
+        			</li>--> 
+        			<li>
+           				<label for="mensaje">Mensaje:</label>
+            			<textarea name="mensaje" id="mensaje" cols="40" rows="6" required ></textarea>
+        			</li>
+        			<li>
+         				<button class="submit" id="botonenviar" type="submit">Enviar</button>
+        			</li>
+    			</ul>
+			</form>
+        </article>
+
+        <article id="art2">
+        	
+        </article>
+    </section>
+    
+	  <footer></footer>
+
+</body>
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+
+<script type="text/javascript">
+
+/*** 
+    Simple jQuery Slideshow Script
+    Released by Jon Raasch (jonraasch.com) under FreeBSD license: free to use or modify, not responsible for anything, etc.  Please link out to me if you like it :)
+***/
+
+function slideSwitch() {
+    var $active = $('.slideshow DIV.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow DIV:last');
+
+    // use this to pull the divs in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('.slideshow DIV:first');
+
+    // uncomment below to pull the divs randomly
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 5000 );
+});
+
+</script>
+
+
+</html>

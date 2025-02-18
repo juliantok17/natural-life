@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>    
+<meta charset="utf-8">
+<title>NATURAL LIFE - FORM</title>
+<link href="css/style.css" rel="stylesheet">
+
+<style>
+#banner {
+	float: left;
+	height:461px;
+	width: 323px;
+}
+/*** set the width and height to match your images **/
+
+.slideshow {
+    position:relative;
+    height:461px;
+	width: 323px;
+}
+
+.slideshow DIV {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:8;
+    opacity:0.0;
+    height:461px;
+	width: 323px;
+    background-color: #FFF;
+}
+
+.slideshow DIV.active {
+    z-index:10;
+    opacity:1.0;
+}
+
+.slideshow DIV.last-active {
+    z-index:9;
+}
+
+.slideshow DIV IMG {
+    height: 461px;
+    display: block;
+    border: 0;
+    margin-bottom: 10px;
+}
+</style>
+
+</head>
+
+<body>
+    <header>
+     	<div class="fondo"></div>
+      <!--<h1> <span class="blanco">Natural</span> <span class="verde">Life</span> </h1>-->
+        <!--iconos de facebook twitter y youtube en header-->
+        <a href=""><div id="imagen1"> </div></a>
+        <a href=""><div id="imagen2"> </div></a>
+        <a href=""><div id="imagen3"> </div></a>
+    </header>
+     
+    <nav>
+        <ul>
+            <li><a href="#">inicio::</a></li>
+            <li><a href="empresa.html">empresa::</a></li>
+            <li><a href="servicios.html">servicios::</a></li>
+            <li><a href="productos.html">productos::</a></li>
+	        <li><a href="contacto.html">contacto::</a></li>
+ 	        <li><a href="links.html">links::</a></li>    
+        </ul>
+        
+		<!--Se usa width="x" dentro de img si se necesita definir un tamaño-->     
+        <div id="face" class="rotar"><img src="img/facepruebaitalic.png"></div>
+        <div id="tweet" class="rotar"><img src="img/twitter1_40x40.png"></div>
+        <div id="youtube" class="rotar"><img src="img/youtube1_40x40.png"></div>       
+    </nav>
+
+    <section>
+        <article id="art1">
+        	
+            <h2>Su mensaje a sido enviado satisfactoriamente</h2><br>
+            
+        </article>
+
+        <article id="art2">
+        	<div id="banner">
+    			<div class="slideshow">
+    				<div class="active">
+       					 <img src="img/slide01.jpg" alt="Slideshow Image 1" />        
+    		        </div>
+    
+                    <div>
+                        <img src="img/slide02.jpg" alt="Slideshow Image 2" />        
+                    </div>
+    
+                    <div>
+                        <img src="img/slide03.jpg" alt="Slideshow Image 3" />        
+                    </div>
+    
+                    <div>
+                        <img src="img/slide04.jpg" alt="Slideshow Image 4" />        
+                    </div>
+    
+                    <div>
+                       <img src="img/slide05.jpg" alt="Slideshow Image 5" />                        
+                    </div>
+    
+                    <div>
+                       <img src="img/slide06.jpg" alt="Slideshow Image 6" />                        
+                    </div>    
+                </div>
+            </div>
+        </article>
+    </section>
+    
+	  <footer></footer>
+
+</body>
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+
+<script type="text/javascript">
+
+/*** 
+    Simple jQuery Slideshow Script
+    Released by Jon Raasch (jonraasch.com) under FreeBSD license: free to use or modify, not responsible for anything, etc.  Please link out to me if you like it :)
+***/
+
+function slideSwitch() {
+    var $active = $('.slideshow DIV.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow DIV:last');
+
+    // use this to pull the divs in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('.slideshow DIV:first');
+
+    // uncomment below to pull the divs randomly
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 5000 );
+});
+
+</script>
+
+
+</html>
